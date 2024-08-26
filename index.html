@@ -4,28 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlogDeCafé-RC</title>
+    <title>BlogDeCafé-RRC</title>
     <meta name="description" content="Página Web de blog de Café">
 
-    <!-- Prefetch // carga la siguiente página-->
-    <link rel="prefetch" href="nosostros.html" as="document">
+    <!-- Prefetch para cargar la siguiente página-->
+    <link rel="prefetch" href="nosotros.html" as="document">
 
+    <!-- Preconnect para optimizar la carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-
-    <!-- preload // carga los elementos que son necesariamente inmediatos-->
-    <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="stylesheet" href="css/normalize.css">
-
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
-        crossorigin="crossorigin" as="fonts">
+    <!-- Preload de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Preload del CSS necesario inmediatamente -->
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/normalize.css">
+    </noscript>
 
+    <!-- Estilos críticos para el header para evitar bloqueos de renderizado -->
+    <style>
+        /* Ejemplo de CSS crítico */
+        .header {
+            background-color: #f5f5f5;
+            padding: 20px 0;
+        }
+
+        .logo__nombre {
+            font-family: 'PT Sans', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        /* Otros estilos críticos necesarios */
+    </style>
+
+    <!-- Preload de imágenes importantes -->
     <link rel="preload" href="img/blog1.jpg" as="image">
 
+    <!-- Carga diferida del CSS principal -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css">
+    </noscript>
 </head>
+
 
 <body>
     <header class="header">
@@ -143,7 +168,7 @@
         </div>
     </footer>
 
-    <script src="js/modernizr.js"></script>
+    <script src="js/modernizr.js" defer></script>
 
 
 </body>
